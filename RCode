@@ -1,2 +1,3 @@
 library(tidyverse)
 BioStat <- read_csv("tu_new.csv")
+example
