@@ -1,3 +1,18 @@
 library(tidyverse)
 BioStat <- read_csv("tu_new.csv")
 example
+
+
+## Join Code ##
+
+# remove columns record, agesmk, smokstat, curruse, and everuse from main data frame (they're all empty)
+data$agesmk <- NULL
+data$smokstat <- NULL
+data$curruse <- NULL
+data$everuse <- NULL
+
+# select needed columns from tobacco data
+tobacco <- tobacco |> select(record, agesmk, smokstat, curruse, everuse)
+
+# join by person ID ("record") to create cod_data
+cod_data <- data |> left_join(tobacco, by = "record")
